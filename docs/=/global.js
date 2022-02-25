@@ -3,9 +3,13 @@ const { assign, create } = Object;
 
 const by_id = id => document.getElementById(id);
 
-const is_disclosure = element =>
+const is_expand_button = element =>
   element.nodeName == 'BUTTON'
   && element.hasAttribute('aria-expanded');
+
+const is_control_button = element =>
+  element.nodeName == 'BUTTON'
+  && element.hasAttribute('aria-controls');
 
 function disclose(button) {
   const expanded = button.getAttribute('aria-expanded');
@@ -39,9 +43,9 @@ const strategy = assign(create(null), {
 
 
 function onclick({ target }) {
-  if (is_disclosure(target)) {
+  if (is_expand_button(target)) {
     disclose(target);
-  } else if (target.hasAttribute('aria-controls')) {
+  } else if (is_control_button(target)) {
     strategy[target.name](target);
   }
 }
