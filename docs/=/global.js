@@ -27,7 +27,7 @@ const strategy = assign(create(null), {
     target.innerHTML = source.innerHTML
   },
   fetch(trigger) {
-    fetch(`/e2e-demo/=/api/${trigger.value}.json`)
+    fetch(`/=/api/${trigger.value}.json`)
       .then(response => response.json())
       .then(function render({ title, message }) {
         const id = trigger.getAttribute('aria-controls');
