@@ -1,3 +1,7 @@
+h1 > span {
+  color: #ccc;
+}
+
 button[aria-expanded="false"] + section {
   display: none;
 }
